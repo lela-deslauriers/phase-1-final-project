@@ -1,0 +1,49 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "name": "Domino",
+        "image": "https://i.ibb.co/TH39X2Z/Screen-Shot-2023-01-21-at-8-35-22-PM.png",
+        "description": "My role in shaping this work was Product Leader for the top of funnel experience of Dropbox web properties. As a cross-functional team we successfully grew traffic, engagement, and the conversion into free sign-up (Freemium), paid trials, and lead generation through initiatives spanning web platform, web navigation, and optimized touch points in journeys.",
+        "industry": "SaaS",
+        "likes": 0
+      },
+      {
+        "id": 2,
+        "name": "Digital Marketing Experience Platform",
+        "image": "https://i.ibb.co/fdC7LXx/Screen-Shot-2023-01-21-at-8-39-45-PM.png",
+        "description": "As Product Leader for the top of funnel experience I was the business driver of our CMS deployment. In addition, I translated concepts for a new B2B-focused content hub from our agency partner into a functional, interative experience by gathering, refining, and prioritizing use cases for our engineering partners in the ITS department.",
+        "industry": "SaaS",
+        "likes": 0
+      },
+      {
+        "id": 3,
+        "name": "Features Content Hub",
+        "image": "https://i.ibb.co/nf7nqXw/Screen-Shot-2023-01-21-at-8-53-43-PM.png",
+        "description": "As SEO Lead I crafted the strategy and plan for a new features content hub to capture qualified non-brand traffic. We doubled SEO traffic and contributed significantly to conversion. The features content hub continues to attract the majority of Dropbox non-brand traffic.",
+        "industry": "SaaS",
+        "likes": 0
+      },
+      {
+        "id": 4,
+        "name": "Top of Funnel Optimization",
+        "image": "https://i.ibb.co/GdxJRYP/Screen-Shot-2023-01-21-at-9-11-33-PM.png",
+        "description": "As Director, Digital Web Experience I drove the experimentation roadmap and identified the homepage as the web touch point with the greatest opportunity to improve our top of funnel. My proposed strategy involves opening up the top of funnel, bringing more people from the homepage into touch points that will help them choose the right plan or contact sales.",
+        "industry": "SaaS",
+        "likes": 0
+      },
+      {
+        "id": 5,
+        "name": "Growth Loop",
+        "image": "https://i.ibb.co/BVMZTMR/Screen-Shot-2023-01-21-at-9-14-01-PM.png",
+        "description": "As Group Product Manager, Growth, I stepped in to set direction and strategy for a growth loop that one of the founders wanted and the team was previously struggling to define. Within a couple weeks I was able to gain alignment from the founder on the growth loop strategy and plan, gaining approval to bring on a new team member to drive execution. In about a quarter we saw hockey-stick growth for our proxy metrics.",
+        "industry": "Ed-Tech",
+        "likes": 0
+      }
+    ],
+
+    "messages": [
+        
+    ]
+  }
+ 
