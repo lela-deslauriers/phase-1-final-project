@@ -1,4 +1,7 @@
 let aboutDisplayed = false;
+function filterData(data, key, value) {
+    return data.filter(item => item[key] === value);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const aboutButton = document.querySelector('#about-me-btn');
@@ -14,8 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    console.log(document.getElementById('project-portfolio'));
-
 
     fetch('http://localhost:3000/projects')
 
@@ -24,11 +25,22 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(function(data) {
         const divPortfolio = document.getElementById('project-portfolio');
-        const select = document.querySelector('#select-menu');
-        const options = document.querySelectorAll('.option');
-        console.log(options);//just showing node, not actual selection value and chaining .value returned undefined
+        const select = document.querySelector('#industry-menu');
+        console.log(document.querySelector('#industry-menu'));
+        const optionSaaS = document.querySelector('#SaaS');
+        console.log(optionSaaS.value);
+        const optionEdTech = document.querySelector('#Ed-Tech');
+        console.log(optionEdTech.value);
 
-        //select industry option from menu and filter project data accordingly
+        select.addEventListener('click', function(event) {
+            console.log(event.target.value)
+            const filteredProjects = filterData(data, "industry", event.target.value);
+            console.log(filteredProjects);
+
+            })
+
+        //select industry option from menu and filter project data accordingly. can I create a variable and assign the value of the option, and then intropolate the variable to the fetch URL? Then using the selected results, display only those projects. 
+
         // options.forEach((option) => {
         //     option.addEventListener("click", () => {
         //         select.querySelector()
@@ -67,3 +79,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+//CONTACT FORM
+// Need to write code to get input values and post them to db
+// fetch ("http://localhost:3000/messages/", {
+//     method: "POST",
+//     headers: {
+//         'Content-Type': 'application/json',
+//         'Accept': 'application/json'
+//     }
+//     body: JSON.stringify (
+            // {
+            //     "name": name,
+            //     "email": email,
+            //     "message": message
+            // }
+//     )
+// })
+// .then(response => response.json())
+// .then(data => {
+    //console.log(data)
+    //document.querySelector('#contact-form').value = ""
+
+//})
