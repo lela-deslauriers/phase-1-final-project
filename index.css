@@ -32,6 +32,12 @@ margin: 1rem 2rem;
 box-shadow: 3px 4px #d0808a
 }
 
+.project-image {
+    justify-self: center;
+    height: 12rem;
+    width: auto;
+  }
+
 button {
 position: relative;
 background-color: #d0808a;
