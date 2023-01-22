@@ -1,6 +1,7 @@
 let aboutDisplayed = false;
 let clickMenu = false;
 const divPortfolio = document.getElementById('project-portfolio');
+const divContact = document.getElementById('contact-form');
 
 function filterData(data, key, value) {
     return data.filter(item => item[key] === value);
@@ -50,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     fetch('http://localhost:3000/projects')
-
     .then(function(response) {
         return response.json();
     })
@@ -76,41 +76,62 @@ document.addEventListener("DOMContentLoaded", () => {
                 displayProjects(filteredProjects)
             } else displayProjects(data)
         });
-
-        //select industry option from menu and filter project data accordingly. can I create a variable and assign the value of the option, and then intropolate the variable to the fetch URL? Then using the selected results, display only those projects. 
-
-        // options.forEach((option) => {
-        //     option.addEventListener("click", () => {
-        //         select.querySelector()
-        //     })
-        // })
-
-
-        console.log(data);
     });
+
+    divPortfolio.addEventListener('click', event => {
+        event.preventDefault()
+
+        let projectId = event.target.id;
+        let projectLikeCount = parseInt(event.target.nextElementSibling.innerText)
+
+        fetch(`http://localhost:3000/projects/${projectId}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+        },
+        body: JSON.stringify(
+            {
+                "likes": projectLikeCount += 1
+            }
+        )
+        })
+        .then(response => response.json())
+        .then(likes => console.log(likes))
+
+    })
 
 
 });
 
-//CONTACT FORM
-// Need to write code to get input values and post them to db
-// fetch ("http://localhost:3000/messages/", {
-//     method: "POST",
-//     headers: {
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json'
-//     }
-//     body: JSON.stringify (
-            // {
-            //     "name": name,
-            //     "email": email,
-            //     "message": message
-            // }
-//     )
-// })
-// .then(response => response.json())
-// .then(data => {
-    //console.log(data)
-    //document.querySelector('#contact-form').value = ""
 
-//})
+divContact.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    fetch ("http://localhost:3000/messages/", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    },
+    body: JSON.stringify (
+            {
+                "name": name,
+                "email": email,
+                "message": message
+            }
+    )
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Thanks for submitting your message! I am busy coding so I might not get back to you for a while. Appreciate your patience.");
+    })
+    .catch(error => {
+        // Handle errors
+        console.error("Error:", error);
+    });
+});
