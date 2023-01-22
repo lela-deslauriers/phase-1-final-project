@@ -28,7 +28,7 @@ There are 4 unique event listeners that enable interactivity:
 Please use the Contact form in the portfolio app if you need support.
 
 ## Roadmap
-- [ ] Replace the placeholder projects with actual projects from my work experience.
+- [ ] Add the why, audience, problem, solution, and impact to the placeholder projects from my work experience.
 - [ ] Enhance CSS styling.
 
 ## Acknowledgment
