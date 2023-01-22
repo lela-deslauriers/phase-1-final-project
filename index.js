@@ -24,7 +24,17 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(function(data) {
         const divPortfolio = document.getElementById('project-portfolio');
-        const projectPortfolio = [];
+        const select = document.querySelector('#select-menu');
+        const options = document.querySelectorAll('.option');
+        console.log(options);//just showing node, not actual selection value and chaining .value returned undefined
+
+        //select industry option from menu and filter project data accordingly
+        // options.forEach((option) => {
+        //     option.addEventListener("click", () => {
+        //         select.querySelector()
+        //     })
+        // })
+
 
         console.log(data);
         data.forEach(project => {
@@ -44,13 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const likeButton = document.createElement('button')
             likeButton.setAttribute('class','like-btn')
             likeButton.setAttribute('id', project.id)
-            likeButton.innerText = 'Like ❤️'
+            likeButton.innerText = '❤️'
             divPortfolio.appendChild(divCard);
             divCard.appendChild(h2);
             divCard.appendChild(img);
             divCard.appendChild(pDescription);
+            divCard.appendChild(likeButton);
             divCard.appendChild(pLikes);
-            pLikes.appendChild(likeButton);
         });
         
     });
