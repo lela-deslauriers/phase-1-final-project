@@ -1,21 +1,25 @@
 # Portfolio App
 
-My portfolio app showcases my projects and enables people to contact me.
+My portfolio app showcases placeholder projects and enables people to contact me.
 
 ## Technologies
 It uses an HTML/CSS/JS frontend that asynchronously accesses data from a db.json file using json-server. 
 
 ## Description
-It returns a collection of 5 objects that are projects in my portfolio. Each object has 3 attributes:
-Project image
-Description
-Industry
-Project link
+It returns a collection of 5 objects that are projects in my portfolio. Each object has 4 attributes:
+
+1. ID
+2. Project image
+3. Description
+4. Industry
+5. Likes
+
 There are 4 unique event listeners that enable interactivity:
-Click to show About me
-Liking projects
-Filter projects
-Submit Contact form
+
+1. Click to show About me
+2. Filter projects
+3. Submit Contact form
+4. Liking projects
 
 ## Visuals
 [Link to video demo]
