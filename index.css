@@ -61,7 +61,8 @@ opacity: .8;
 }
 
 .contact-form {
-width: 80%
+width: 80%;
+justify-self: center;
 }
 
 .submit {
