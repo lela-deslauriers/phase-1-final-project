@@ -23,12 +23,14 @@
       <button id="about-me-btn" >About</button> 
     </p>
 
-    <div id="select-menu">
+    <div id="select-container">
         <center>
             <h2>Filter projects by industry</h2>
-            <select name="industry">
-                <option value="SaaS">SaaS</option>
-                <option value="Ed-Tech">Ed-Tech</option>
+            <select id="industry-menu" name="industry">
+                <option id="options" value="">Select an option...</option>
+                <option id="all" value="Saas && Ed-Tech">All industries</option> 
+                <option id="SaaS" value="SaaS">SaaS</option>
+                <option id="Ed-Tech" value="Ed-Tech">Ed-Tech</option>
             </select>
             </center>
             <br>
@@ -36,13 +38,13 @@
 
     <div id="project-portfolio"></div>
 
-    <div id="contact-form">
+    <div id="contact-container">
         <center>
-        <form class="contact-form">
+        <form id="contact-form">
             <h2>Contact</h2>
-            <input type="text" name="name" value placeholder="Enter your name..." class="input-text">
-            <input type="text" name="email" value placeholder="Enter your email address..." class="input-text">
-            <input type="text" name="message" value placeholder="Enter your message..." class="input-text">
+            <input type="text" name="name" id="name" value placeholder="Enter your name..." class="input-text">
+            <input type="text" name="email" id="email" value placeholder="Enter your email address..." class="input-text">
+            <input type="text" name="message" id="message" value placeholder="Enter your message..." class="input-text">
             <br>
             <input type="submit" name="submit" value="Submit" class="submit">
 
