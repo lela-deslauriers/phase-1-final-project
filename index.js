@@ -63,20 +63,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const optionEdTech = document.querySelector('#Ed-Tech');
         console.log(optionEdTech.value);
 
-        select.addEventListener('click', function(event) {
-            console.log(event.target.value)
-
+        select.addEventListener('change', event => {
+            console.log(event.target.value);
             const filteredProjects = filterData(data, "industry", event.target.value);
+            displayProjects(filteredProjects);
 
-            console.log(filteredProjects);
-
-            clickMenu = !clickMenu
-           
-            if (clickMenu) {
-                displayProjects(filteredProjects)
-            } else displayProjects(data)
         });
-    });
+
+
+
+    })
 
     divPortfolio.addEventListener('click', event => {
         event.preventDefault()
@@ -98,9 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(response => response.json())
         .then(likes => console.log(likes))
-
     })
-
 
 });
 
