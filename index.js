@@ -1,39 +1,7 @@
 let aboutDisplayed = false;
 let clickMenu = false;
-const divPortfolio = document.getElementById('project-portfolio');
 const divContact = document.getElementById('contact-form');
 
-function filterData(data, key, value) {
-    return data.filter(item => item[key] === value);
-}
-
-function displayProjects(data) {
-    data.forEach(project => {
-        //dynamically display projects
-        const divCard = document.createElement('div')
-        divCard.setAttribute('class', 'card')
-        divCard.setAttribute('id', project.name)
-        const h2 = document.createElement('h2')
-        h2.innerText = project.name
-        const img = document.createElement('img')
-        img.src = project.image
-        img.setAttribute('class', 'project-image')
-        const pDescription = document.createElement('p')
-        pDescription.innerText = project.description
-        const pLikes = document.createElement('p')
-        pLikes.innerText = `${project.likes} likes      `
-        const likeButton = document.createElement('button')
-        likeButton.setAttribute('class','like-btn')
-        likeButton.setAttribute('id', project.id)
-        likeButton.innerText = '❤️'
-        divPortfolio.appendChild(divCard);
-        divCard.appendChild(h2);
-        divCard.appendChild(img);
-        divCard.appendChild(pDescription);
-        divCard.appendChild(likeButton);
-        divCard.appendChild(pLikes);
-    });
-}
 
 document.addEventListener("DOMContentLoaded", () => {
     const aboutButton = document.querySelector('#about-me-btn');
@@ -49,23 +17,52 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
+    //filter and display projects
     fetch('http://localhost:3000/projects')
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
-  
         const select = document.querySelector('#industry-menu');
-        console.log(document.querySelector('#industry-menu'));
-        const optionSaaS = document.querySelector('#SaaS');
-        console.log(optionSaaS.value);
-        const optionEdTech = document.querySelector('#Ed-Tech');
-        console.log(optionEdTech.value);
+        const divPortfolioResults = document.getElementById('project-portfolio');
 
         select.addEventListener('change', event => {
-            console.log(event.target.value);
-            const filteredProjects = filterData(data, "industry", event.target.value);
+
+            const selectedOption = event.target.value;
+            const filteredProjects = filterData(data, "industry", selectedOption);
+            
+            function filterData(data, key, value) {
+                return data.filter(item => item[key] === value);
+            }
+
+            function displayProjects(data) {
+                data.forEach(project => {
+                    //dynamically display projects
+                    const divCard = document.createElement('div')
+                    divCard.setAttribute('class', 'card')
+                    divCard.setAttribute('id', project.name)
+                    const h2 = document.createElement('h2')
+                    h2.innerText = project.name
+                    const img = document.createElement('img')
+                    img.src = project.image
+                    img.setAttribute('class', 'project-image')
+                    const pDescription = document.createElement('p')
+                    pDescription.innerText = project.description
+                    const pLikes = document.createElement('p')
+                    pLikes.innerText = `${project.likes} likes      `
+                    const likeButton = document.createElement('button')
+                    likeButton.setAttribute('class','like-btn')
+                    likeButton.setAttribute('id', project.id)
+                    likeButton.innerText = '❤️'
+                    divPortfolioResults.appendChild(divCard);
+                    divCard.appendChild(h2);
+                    divCard.appendChild(img);
+                    divCard.appendChild(pDescription);
+                    divCard.appendChild(likeButton);
+                    divCard.appendChild(pLikes);
+                });
+            }
+            
             displayProjects(filteredProjects);
 
         });
