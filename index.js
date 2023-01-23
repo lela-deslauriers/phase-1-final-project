@@ -1,5 +1,6 @@
 let aboutDisplayed = false;
 let clickMenu = false;
+const divPortfolioResults = document.getElementById('project-portfolio');
 const divContact = document.getElementById('contact-form');
 
 
@@ -24,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(function(data) {
         const select = document.querySelector('#industry-menu');
-        const divPortfolioResults = document.getElementById('project-portfolio');
 
         select.addEventListener('change', event => {
 
@@ -35,43 +35,37 @@ document.addEventListener("DOMContentLoaded", () => {
                 return data.filter(item => item[key] === value);
             }
 
-            function displayProjects(data) {
-                data.forEach(project => {
-                    //dynamically display projects
-                    const divCard = document.createElement('div')
-                    divCard.setAttribute('class', 'card')
-                    divCard.setAttribute('id', project.name)
-                    const h2 = document.createElement('h2')
-                    h2.innerText = project.name
-                    const img = document.createElement('img')
-                    img.src = project.image
-                    img.setAttribute('class', 'project-image')
-                    const pDescription = document.createElement('p')
-                    pDescription.innerText = project.description
-                    const pLikes = document.createElement('p')
-                    pLikes.innerText = `${project.likes} likes      `
-                    const likeButton = document.createElement('button')
-                    likeButton.setAttribute('class','like-btn')
-                    likeButton.setAttribute('id', project.id)
-                    likeButton.innerText = '❤️'
-                    divPortfolioResults.appendChild(divCard);
-                    divCard.appendChild(h2);
-                    divCard.appendChild(img);
-                    divCard.appendChild(pDescription);
-                    divCard.appendChild(likeButton);
-                    divCard.appendChild(pLikes);
-                });
-            }
-            
-            displayProjects(filteredProjects);
+            filteredProjects.forEach(project => {
+                //create elements to dynamically display projects
+                const divCard = document.createElement('div')
+                divCard.setAttribute('class', 'card')
+                divCard.setAttribute('id', project.name)
+                const h2 = document.createElement('h2')
+                h2.innerText = project.name
+                const img = document.createElement('img')
+                img.src = project.image
+                img.setAttribute('class', 'project-image')
+                const pDescription = document.createElement('p')
+                pDescription.innerText = project.description
+                const pLikes = document.createElement('p')
+                pLikes.innerText = `${project.likes} likes      `
+                const likeButton = document.createElement('button')
+                likeButton.setAttribute('class','like-btn')
+                likeButton.setAttribute('id', project.id)
+                likeButton.innerText = '❤️'
+                divPortfolioResults.appendChild(divCard);
+                divCard.appendChild(h2);
+                divCard.appendChild(img);
+                divCard.appendChild(pDescription);
+                divCard.appendChild(likeButton);
+                divCard.appendChild(pLikes);
 
+            //displayProjects(filteredProjects);
+            });
         });
+    });
 
-
-
-    })
-
-    divPortfolio.addEventListener('click', event => {
+    divPortfolioResults.addEventListener('click', event => {
         event.preventDefault()
 
         let projectId = event.target.id;
@@ -80,49 +74,57 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch(`http://localhost:3000/projects/${projectId}`, {
             method: "PATCH",
             headers: {
-              "Content-Type": "application/json",
-              "Accept": "application/json"
+                "Content-Type": "application/json",
+                "Accept": "application/json"
         },
-        body: JSON.stringify(
-            {
-                "likes": projectLikeCount += 1
-            }
-        )
+            body: JSON.stringify(
+                {
+                    "likes": projectLikeCount += 1
+                }
+            )
         })
         .then(response => response.json())
         .then(likes => console.log(likes))
     })
 
-});
-
-
-divContact.addEventListener('submit', (event) => {
-    event.preventDefault()
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    fetch ("http://localhost:3000/messages/", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-    },
-    body: JSON.stringify (
-            {
-                "name": name,
-                "email": email,
-                "message": message
-            }
-    )
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert("Thanks for submitting your message! I am busy coding so I might not get back to you for a while. Appreciate your patience.");
-    })
-    .catch(error => {
-        // Handle errors
-        console.error("Error:", error);
+    divContact.addEventListener('submit', (event) => {
+        event.preventDefault()
+    
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+    
+        fetch ("http://localhost:3000/messages/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify (
+                {
+                    "name": name,
+                    "email": email,
+                    "message": message
+                }
+        )
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert("Thanks for submitting your message! I am busy coding so I might not get back to you for a while. Appreciate your patience.");
+        })
+        .catch(error => {
+            // Handle errors
+            console.error("Error:", error);
+        });
     });
+
 });
+
+
+
+
+            
+            
+
+
+
