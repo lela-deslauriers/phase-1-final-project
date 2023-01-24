@@ -24,6 +24,35 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json();
     })
     .then(function(data) {
+
+        data.forEach(project => {
+            //create elements to dynamically display projects
+            const divCard = document.createElement('div')
+            divCard.setAttribute('class', 'card')
+            divCard.setAttribute('id', project.name)
+            const h2 = document.createElement('h2')
+            h2.innerText = project.name
+            const img = document.createElement('img')
+            img.src = project.image
+            img.setAttribute('class', 'project-image')
+            const pDescription = document.createElement('p')
+            pDescription.innerText = project.description
+            const pLikes = document.createElement('p')
+            pLikes.innerText = `${project.likes} likes      `
+            const likeButton = document.createElement('button')
+            likeButton.setAttribute('class','like-btn')
+            likeButton.setAttribute('id', project.id)
+            likeButton.innerText = '❤️'
+            divPortfolioResults.appendChild(divCard);
+            divCard.appendChild(h2);
+            divCard.appendChild(img);
+            divCard.appendChild(pDescription);
+            divCard.appendChild(likeButton);
+            divCard.appendChild(pLikes);
+        })
+
+
+
         const select = document.querySelector('#industry-menu');
 
         select.addEventListener('change', event => {
@@ -34,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
             function filterData(data, key, value) {
                 return data.filter(item => item[key] === value);
             }
+
+            divPortfolioResults.replaceChildren()
 
             filteredProjects.forEach(project => {
                 //create elements to dynamically display projects
@@ -60,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 divCard.appendChild(likeButton);
                 divCard.appendChild(pLikes);
 
-            //displayProjects(filteredProjects);
+            //refactor by using displayProjects(filteredProjects);
             });
         });
     });
@@ -84,8 +115,10 @@ document.addEventListener("DOMContentLoaded", () => {
             )
         })
         .then(response => response.json())
-        .then(likes => console.log(likes))
-    })
+        .then(function(data) {
+            console.log(data);
+        });
+    });
 
     divContact.addEventListener('submit', (event) => {
         event.preventDefault()
@@ -110,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             alert("Thanks for submitting your message! I am busy coding so I might not get back to you for a while. Appreciate your patience.");
         })
         .catch(error => {
