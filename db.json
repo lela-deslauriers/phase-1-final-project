@@ -6,7 +6,7 @@
       "image": "https://i.ibb.co/TH39X2Z/Screen-Shot-2023-01-21-at-8-35-22-PM.png",
       "description": "My role in shaping this work was Product Leader for the top of funnel experience of Dropbox web properties. As a cross-functional team we successfully grew traffic, engagement, and the conversion into free sign-up (Freemium), paid trials, and lead generation through initiatives spanning web platform, web navigation, and optimized touch points in journeys.",
       "industry": "SaaS",
-      "likes": 3
+      "likes": 10
     },
     {
       "id": 2,
@@ -22,7 +22,7 @@
       "image": "https://i.ibb.co/nf7nqXw/Screen-Shot-2023-01-21-at-8-53-43-PM.png",
       "description": "As SEO Lead I crafted the strategy and plan for a new features content hub to capture qualified non-brand traffic. We doubled SEO traffic and contributed significantly to conversion. The features content hub continues to attract the majority of Dropbox non-brand traffic.",
       "industry": "SaaS",
-      "likes": 1
+      "likes": 2
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "image": "https://i.ibb.co/GdxJRYP/Screen-Shot-2023-01-21-at-9-11-33-PM.png",
       "description": "As Director, Digital Web Experience I drove the experimentation roadmap and identified the homepage as the web touch point with the greatest opportunity to improve our top of funnel. My proposed strategy involves opening up the top of funnel, bringing more people from the homepage into touch points that will help them choose the right plan or contact sales.",
       "industry": "SaaS",
-      "likes": 2
+      "likes": 3
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "image": "https://i.ibb.co/BVMZTMR/Screen-Shot-2023-01-21-at-9-14-01-PM.png",
       "description": "As Group Product Manager, Growth, I stepped in to set direction and strategy for a growth loop. Within a couple weeks I was able to gain alignment from the founder on the growth loop strategy and plan, as well as approval to bring on a new team member to drive execution. In about a quarter we saw hockey-stick growth for our proxy metrics.",
       "industry": "Ed-Tech",
-      "likes": 8
+      "likes": 15
     }
   ],
   "messages": [
@@ -77,6 +77,12 @@
       "email": "alex@gmail.com",
       "message": "Hi, lets connect!",
       "id": 6
+    },
+    {
+      "name": "Dennis the Menace",
+      "email": "dennis@gmail.com",
+      "message": "Send me an email if you want help with cleaning up your code!",
+      "id": 7
     }
   ]
 }
